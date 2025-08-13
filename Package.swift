@@ -5,20 +5,25 @@ import PackageDescription
 
 let package = Package(
     name: "DeviceUtils",
+    platforms: [
+        .iOS(.v13)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DeviceUtils",
-            targets: ["DeviceUtils"]),
+            targets: ["DeviceUtils"]
+        ),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
+        // Swift 部分
         .target(
-            name: "DeviceUtils"),
-        .testTarget(
-            name: "DeviceUtilsTests",
-            dependencies: ["DeviceUtils"]
+            name: "DeviceUtils",
+            dependencies: ["XLPageController"]
         ),
+        // Objective-C 部分
+        .target(
+            name: "XLPageController",
+            publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
+        )
     ]
 )
