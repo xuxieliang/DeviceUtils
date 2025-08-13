@@ -15,19 +15,24 @@ let package = Package(
         ),
     ],
     targets: [
-        // Swift 部分
+        // 主模块 (Swift 部分)
         .target(
             name: "DeviceUtils"
         ),
-        // Objective-C 部分
+
+        // ObjC 部分合并成一个模块
         .target(
-            name: "XLMenuView",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "XLPageController",
-            dependencies: ["XLMenuView"],
-            publicHeadersPath: "."
+            name: "XLComponents", // 新 target 名
+            path: "Sources",
+            sources: [
+                "XLMenuView",
+                "XLPageController"
+            ],
+            publicHeadersPath: ".", // 两个文件夹内的所有 .h 都作为公共头
+            cSettings: [
+                .headerSearchPath("XLMenuView"),
+                .headerSearchPath("XLPageController")
+            ]
         )
     ]
 )
