@@ -36,7 +36,7 @@
 - (BOOL)panBack:(UIGestureRecognizer *)gestureRecognizer {
     
     //是滑动返回距左边的有效长度
-    int location_X =0.15 * kScreenW;
+    int location_X =0.15 * UIScreen.mainScreen.bounds.size.width;
     
     if (gestureRecognizer == self.panGestureRecognizer) {
         UIPanGestureRecognizer *pan = (UIPanGestureRecognizer *)gestureRecognizer;
@@ -47,13 +47,13 @@
             CGPoint location2 = [gestureRecognizer locationInView:self.header];
             if (self.header) {
                 // 拥有header的时候，滑动header不响应
-                if (location2.y <= self.header.height) {
+                if (location2.y <= self.header.bounds.size.height) {
                     return YES;
                 }
             }
             //这是允许每张图片都可实现滑动返回
             int temp1 = location.x;
-            int temp2 = kScreenW;
+            int temp2 = UIScreen.mainScreen.bounds.size.width;
             NSInteger XX = temp1 % temp2;
             if (point.x >0 && XX < location_X) {
                 return YES;
