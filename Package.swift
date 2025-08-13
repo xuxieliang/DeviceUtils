@@ -17,13 +17,17 @@ let package = Package(
     targets: [
         // Swift 部分
         .target(
-            name: "DeviceUtils",
-            dependencies: ["XLPageController"]
+            name: "DeviceUtils"
         ),
         // Objective-C 部分
         .target(
+            name: "XLMenuView",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "XLPageController",
-            publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
+            dependencies: ["XLMenuView"],
+            publicHeadersPath: "."
         )
     ]
 )
