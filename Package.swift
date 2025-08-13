@@ -11,28 +11,14 @@ let package = Package(
     products: [
         .library(
             name: "DeviceUtils",
-            targets: ["DeviceUtils"]
+            targets: ["XLMenuView"]
         ),
     ],
     targets: [
-        // 主模块 (Swift 部分)
+        // Objective-C 部分
         .target(
-            name: "DeviceUtils"
-        ),
-
-        // ObjC 部分合并成一个模块
-        .target(
-            name: "XLComponents", // 新 target 名
-            path: "Sources",
-            sources: [
-                "XLMenuView",
-                "XLPageController"
-            ],
-            publicHeadersPath: ".", // 两个文件夹内的所有 .h 都作为公共头
-            cSettings: [
-                .headerSearchPath("XLMenuView"),
-                .headerSearchPath("XLPageController")
-            ]
+            name: "XLMenuView",
+            publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
         )
     ]
 )
