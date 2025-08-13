@@ -6,7 +6,7 @@
 //  Copyright © 2020 www.diyicaijing.com. All rights reserved.
 //
 
-#import "XLBaseViewController.h"
+//#import "XLBaseViewController.h"
 #import "XLMenuView.h"
 #import "XLScrollView.h"
 
@@ -98,7 +98,7 @@ extern NSString *const XLControllerDidFullyDisplayedNotification;
 
 @end
 
-@interface XLPageController : XLBaseViewController <XLMenuViewDelegate, XLMenuViewDataSource, UIScrollViewDelegate, XLPageControllerDataSource, XLPageControllerDelegate>
+@interface XLPageController : UIViewController <XLMenuViewDelegate, XLMenuViewDataSource, UIScrollViewDelegate, XLPageControllerDataSource, XLPageControllerDelegate>
 
 @property (nonatomic, weak) id<XLPageControllerDelegate> delegate;
 @property (nonatomic, weak) id<XLPageControllerDataSource> dataSource;
