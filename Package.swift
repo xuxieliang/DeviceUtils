@@ -19,11 +19,19 @@ let package = Package(
         .target(
             name: "XLPageController",
             dependencies: ["XLMenuView"],
-            publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
+            path: "Sources/XLPageController",
+            publicHeadersPath: ".", // 让 OC 的头文件可以暴露出去
+            cSettings: [
+                .headerSearchPath(".")
+            ]
         ),
         .target(
             name: "XLMenuView",
-            publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
+            path: "Sources/XLMenuView",
+            publicHeadersPath: ".", // 让 OC 的头文件可以暴露出去
+            cSettings: [
+                .headerSearchPath(".")
+            ]
         )
     ]
 )
