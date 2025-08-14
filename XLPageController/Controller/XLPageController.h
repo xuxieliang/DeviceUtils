@@ -8,12 +8,8 @@
 
 //#import "XLBaseViewController.h"
 #import "XLMenuView.h"
-//#import "XLScrollView.h"
-#if __has_include(<XLMenuView/XLScrollView.h>)
-#import <XLMenuView/XLScrollView.h>
-#else
-#import "XLScrollView.h" // fallback for manual build
-#endif
+#import "XLScrollView.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 
