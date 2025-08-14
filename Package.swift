@@ -11,11 +11,16 @@ let package = Package(
     products: [
         .library(
             name: "DeviceUtils",
-            targets: ["XLMenuView"]
+            targets: ["XLPageController"]
         ),
     ],
     targets: [
         // Objective-C 部分
+        .target(
+            name: "XLPageController",
+            dependencies: ["XLMenuView"],
+            publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
+        ),
         .target(
             name: "XLMenuView",
             publicHeadersPath: "." // 让 OC 的头文件可以暴露出去
